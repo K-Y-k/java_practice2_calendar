@@ -15,16 +15,41 @@ public class Calendar_Print {
 		}
 	}
 
-	public static void Calendar_print_calcualte(int year, int month) {
+	public static void Calendar_print_calcualte(int year, int month, String week) {
 		System.out.printf("    << %d년  %d월 >>\n", year, month);
 		System.out.println(" 일  월  화  수  목  금  토");
 		System.out.println("-----------------------");
 
 		int max_day = Calendar_Print.get_max_day(year, month);
+		int week_count = 0;
+		
+		
+		// 요일에 따른 칸 띄우기 및 개행조건에 필요한 카운트 조정 선언
+		if(week.equals("일")) { 
+			week_count = 7;
+		} else if(week.equals("월")) {
+			System.out.printf("   ");
+			week_count = 1;
+		} else if(week.equals("화")) {
+			System.out.printf("      ");
+			week_count = 2;
+		} else if(week.equals("수")) {
+			System.out.printf("         ");
+			week_count = 3;
+		} else if(week.equals("목")) {
+			System.out.printf("            ");
+			week_count = 4;
+		} else if(week.equals("금")) {
+			System.out.printf("               ");
+			week_count = 5;
+		} else if(week.equals("토")) {
+			System.out.printf("                  ");
+			week_count = 6;
+		}
 		
 		for (int i = 1; i <= max_day; i++) { // 마지막 날까지 반복 출력
 			System.out.printf("%3d", i); // %3d의 3은 3칸까지 선정하기에 칸 조절
-			if (i % 7 == 0) { // 7일 단위로 개행해야하기에 조건 지정
+			if (i % 7 == 7 - week_count) { // 7일 단위로 나눈 나머지에 따라 개행 조절
 				System.out.println("");
 			}
 		}
@@ -39,8 +64,12 @@ public class Calendar_Print {
 		System.out.printf("월을 입력하세요: ");
 		Scanner input_month = new Scanner(System.in);
 		int month = input_month.nextInt();
+		
+		System.out.println("시작 요일을 입력하세요: ex) 일 월 화 수 목 금 토");
+		Scanner input_week = new Scanner(System.in);
+		String week = input_week.next();
 
-		Calendar_Print.Calendar_print_calcualte(year, month);
+		Calendar_Print.Calendar_print_calcualte(year, month, week);
 		System.out.println("\n");
 
 //		switch문 방식
