@@ -18,6 +18,7 @@ public class calendar_practice {
 			System.out.println("메뉴를 선택해주세요: ");
 			System.out.println("1. 두수의 합");
 			System.out.println("2. 달의 전체일 확인");
+			System.out.println("3. 달의 출력");
 			System.out.println("-1. 프로그램 종료");
 
 			Scanner input_menu = new Scanner(System.in);
@@ -26,7 +27,9 @@ public class calendar_practice {
 			if (menu == 1) {
 				Sum.Sum_calculate();
 			} else if (menu == 2) {
-				Calendar_calcuate.calendar_calcuate1();
+				Calendar_fianalDay_calcuate.calendar_calcuate1();
+			} else if (menu == 3) {
+				Calendar_Print.Calendar_print();
 			} else if (menu == -1) {
 				System.out.println("프로그램 종료");
 				break;

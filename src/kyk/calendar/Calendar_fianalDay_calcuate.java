@@ -2,16 +2,16 @@ package kyk.calendar;
 
 import java.util.Scanner;
 
-public class Calendar_calcuate {
+public class Calendar_fianalDay_calcuate {
 
 	private static final int max_day[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }; // 해당 값들 배열로 저장 및 static fianl로 고정
 
-	public int get_max_day(int month) { // 입력에 따른 해당 총 날짜 수 반한
+	private static int get_max_day(int month) { // 입력에 따른 해당 총 날짜 수 반한
 		return max_day[month - 1];
 	}
 
 	public static void calendar_calcuate1() {
-		Calendar_calcuate cal = new Calendar_calcuate(); // 위 메서드를 사용하기 위해 생성자 선언
+		Calendar_fianalDay_calcuate cal = new Calendar_fianalDay_calcuate(); // 위 메서드를 사용하기 위해 생성자 선언
 
 		System.out.printf("반복횟수를 입력하세요: ");
 		Scanner input_repeat = new Scanner(System.in);
